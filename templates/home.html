@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            margin: 20px;
+        }
+
+        .list_items {
+            margin-left: 45px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1 style="text-align: center;">Welcome to 'Actual Name'</h1>
+    </div>
+    <div>
+        <ul style="font-weight: bold;">CRUD Operations</ul>
+        <div class="list_items">
+            <li><a href="{% url 'add_users' %}">Add user</a></li>
+            <li><a href="{% url 'list_all_users' %}">List all users</a></li>
+            <li>Update user</li>
+            <li>Delete user</li>
+        </div>
+    </div>
+</body>
+
+</html>

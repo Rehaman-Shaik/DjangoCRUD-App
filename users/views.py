@@ -16,3 +16,14 @@ def add_users(request):
     context['form'] = form
     return render(request, 'curd_op/add_user_page.html', context)
     #return render(request, 'curd_op/add_user_page.html')
+    
+def list_all_users(request):
+    context = {}
+    profiles = Profile.objects.all()
+    context['dataset']= profiles
+    context['length'] = len(profiles)
+    return render(request, 'curd_op/list_all_users.html', context)
+
+def home_page(request):
+    return render(request, 'home.html')
+    

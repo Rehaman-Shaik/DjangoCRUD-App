@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List all Users</title>
+    <style>
+        body {
+            margin: 20px;
+        }
+
+        .user {
+            height: 120px;
+            width: 200px;
+        }
+
+        .heading {
+            background-color: aquamarine;
+            display: inline;
+        }
+
+        .class_span {
+            font-size: 20px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <form action="{% url 'home_page' %}">
+            <input type="submit" value="Home" />
+        </form>
+        <hr>
+        <h1 class="heading">All Users</h1>
+        <p>No of users in the database: <span class="class_span">{{ length}}</span></p>
+    </div>
+    <div class="user">
+        <!--<p>context: {{dataset}}</p>-->
+        {% for data in dataset %}
+        <p>UserName: {{ data.user_name}}</p>
+        <p>User age: {{ data.age}}</p>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

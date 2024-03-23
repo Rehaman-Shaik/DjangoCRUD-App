@@ -4,8 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing page</title>
+    <style>
+        body{
+            margin: 20px;
+        }
+        .heading{
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h1> Landing page home</h1>
+    <div class="heading"><h1> Landing page home</h1></div>
+    <div><form action="{% url 'home_page' %}">
+        <input type="submit" value="Home" />
+    </form></div>
+    
+    <hr>
 </body>
 </html>
