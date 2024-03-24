@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <style>
+        body {
+            margin: 20px;
+        }
+
+        .buttons_div {
+            display: flex;
+            /* Use flexbox to make children inline */
+            justify-content: center;
+            /* Center align children */
+        }
+
+        .buttons_div form {
+            margin-right: 10px;
+            /* Add space between forms */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="buttons_div">
+        <form action="{% url 'home_page' %}">
+            <input type="submit" value="Home" />
+        </form>
+        <form action="{% url 'list_all_users' %}">
+            <input type="submit" value="All Users" />
+        </form>
+        <hr>
+    </div>
+    <div>
+        <h1 class="heading">User profile</h1>
+    </div>
+    <div>
+        <p>User Name: {{data.user_name}}</p>
+        <p>First Name: {{data.fname}}</p>
+        <p>Last Name: {{data.lname}}</p>
+        <p>User age: {{data.age}}</p>
+        <p>Description: {{data.description}}</p>
+        <p>Location: {{data.location}}</p>
+    </div>
+</body>
+
+</html>
