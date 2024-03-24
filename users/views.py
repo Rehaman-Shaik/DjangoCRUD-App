@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 #from django.http import HttpResponse
 from .models import Profile
 from .forms import ProfileForms
@@ -13,6 +14,7 @@ def add_users(request):
     form =  ProfileForms(request.POST or None)
     if form.is_valid():
         form.save()
+        return redirect(reverse('home_page'))
     
     context['form'] = form
     return render(request, 'curd_op/add_user_page.html', context)
@@ -38,3 +40,28 @@ def detail_view(request, id):
     print(profile.user_name)
     context['data'] = profile
     return render(request, 'curd_op/user_details.html', context)
+
+
+def update_user(request, id):
+    context = {}
+    
+    user = get_object_or_404(Profile, id=id)
+    form = ProfileForms(request.POST or None, instance=user)
+    
+    if form.is_valid():
+        form.save()
+        return redirect(reverse('user_details', kwargs={'id': id}))
+        #return HttpResponseRedirect("user/" + str(id))
+    
+    context['form'] = form
+    context['id']=id
+    return render(request, 'curd_op/update_user.html', context)
+
+def delete_user(request, id):
+    context={}
+    context['id']=id
+    profile = Profile.objects.get(id=id)
+    if request.method =="POST":
+        profile.delete()
+        return redirect(reverse('list_all_users'))
+    return render(request, 'curd_op/delete_user.html', context)

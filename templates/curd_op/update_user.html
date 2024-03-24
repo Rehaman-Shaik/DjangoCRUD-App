@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Details</title>
+    <title>Update user profile</title>
     <style>
         body {
             margin: 20px;
@@ -23,7 +22,6 @@
         }
     </style>
 </head>
-
 <body>
     <div class="buttons_div">
         <form action="{% url 'home_page' %}">
@@ -32,26 +30,24 @@
         <form action="{% url 'list_all_users' %}">
             <input type="submit" value="All Users" />
         </form>
+        <form action="{% url 'user_details' id=id %}">
+            <input type="submit" value="Back" />
+        </form>
     </div>
     <hr>
-    <div>
-        <h1 class="heading">User profile</h1>
-    </div>
-    <div>
-        <p>User Name: {{data.user_name}}</p>
-        <p>First Name: {{data.fname}}</p>
-        <p>Last Name: {{data.lname}}</p>
-        <p>User age: {{data.age}}</p>
-        <p>Description: {{data.description}}</p>
-        <p>Location: {{data.location}}</p>
-        <div class="buttons_div">
-        <form action="{% url 'update_user' id=data.id %}">
-            <input type="submit" value="Update User" />
+    <div><h1>Update Users</h1></div>
+    <div class="main">
+        <!-- Create a Form -->
+        <form method="POST">
+            <!-- Security token by Django -->
+            {% csrf_token %}
+     
+            <!-- form as paragraph -->
+            {{ form.as_p }}
+     
+            <input type="submit" value="Update">
         </form>
-        <form action="{% url 'delete_user' id=data.id %}">
-            <input type="submit" value="Delete User" />
-        </form>
-        </div>
+     
     </div>
 </body>
 </html>

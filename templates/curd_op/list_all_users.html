@@ -41,7 +41,7 @@
         {% for data in dataset %}
         <p>UserName: {{ data.user_name}}</p>
         <p>User age: {{ data.age}}</p>
-        <form action="{% url 'user_details'  id=data.id%}">
+        <form action="{% url 'user_details'  id=data.id %}">
             <input type="submit" value="View More Details" />
         </form>
         {% endfor %}
