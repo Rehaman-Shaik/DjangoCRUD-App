@@ -65,3 +65,11 @@ def delete_user(request, id):
         profile.delete()
         return redirect(reverse('list_all_users'))
     return render(request, 'curd_op/delete_user.html', context)
+
+
+def sign_up(request):
+    return render(request, 'auth/signup.html')
+
+
+def login(request):
+    return render(request, 'auth/login.html')

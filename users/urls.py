@@ -9,4 +9,6 @@ urlpatterns = [
     path('user/<id>/',views.detail_view, name="user_details"),
     path('update_user/<int:id>/', views.update_user, name='update_user'),
     path('delete_user/<int:id>/', views.delete_user, name='delete_user'),
+    path('signup/', views.sign_up, name='signup'),
+    path('login/', views.login, name='login' ),
 ]

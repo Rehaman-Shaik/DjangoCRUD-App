@@ -15,8 +15,11 @@
 </head>
 <body>
     <div class="heading"><h1> Landing page home</h1></div>
-    <div><form action="{% url 'home_page' %}">
-        <input type="submit" value="Home" />
+    <div><form action="{% url 'signup' %}">
+        <input type="submit" value="Signup" />
+    </form>
+    <div><form action="{% url 'login' %}">
+        <input type="submit" value="Login" />
     </form></div>
     
     <hr>

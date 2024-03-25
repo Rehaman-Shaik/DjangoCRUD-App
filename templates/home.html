@@ -1,19 +1,22 @@
 {% extends 'base.html' %}
 {% block title %} Home {% endblock %}
-{% block header %}<h1 style="text-align: center;">Welcome to 'Actual Name'</h1>{% endblock %}
+{% block header %}<h1 style="text-align: center;">Welcome to '__________'</h1>{% endblock %}
 {% block content %}
 <div>
     <h2 style="font-weight: bold;">CRUD Operations</h2>
     <div class="list_items">
         <form action="{% url 'add_users' %}">
             <input type="submit" value="Add user" />
-        </form><br>
+        </form>
+        <br>
         <form action="{% url 'list_all_users' %}">
             <input type="submit" value="List all users" />
-        </form><br>
+        </form>
+        <br>
         <form action="">
             <input type="submit" value="Update user" />
-        </form><br>
+        </form>
+        <br>
         <form action="">
             <input type="submit" value="Delete user" />
         </form>
