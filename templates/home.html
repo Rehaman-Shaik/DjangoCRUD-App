@@ -1,40 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% block title %} Home {% endblock %}
+{% block header %}<h1 style="text-align: center;">Welcome to 'Actual Name'</h1>{% endblock %}
+{% block content %}
+<div>
+    <h2 style="font-weight: bold;">CRUD Operations</h2>
+    <div class="list_items">
+        <form action="{% url 'add_users' %}">
+            <input type="submit" value="Add user" />
+        </form><br>
+        <form action="{% url 'list_all_users' %}">
+            <input type="submit" value="List all users" />
+        </form><br>
+        <form action="">
+            <input type="submit" value="Update user" />
+        </form><br>
+        <form action="">
+            <input type="submit" value="Delete user" />
+        </form>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <style>
-        body {
-            margin: 20px;
-        }
-
-        
-    </style>
-</head>
-
-<body>
-    <div>
-        <h1 style="text-align: center;">Welcome to 'Actual Name'</h1>
     </div>
-    <div>
-        <h2 style="font-weight: bold;">CRUD Operations</h2>
-        <div class="list_items">
-            <form action="{% url 'add_users' %}">
-                <input type="submit" value="Add user" />
-            </form><br>
-            <form action="{% url 'list_all_users' %}">
-                <input type="submit" value="List all users" />
-            </form><br>
-            <form action="">
-                <input type="submit" value="Update user" />
-            </form><br><form action="">
-                <input type="submit" value="Delete user" />
-            </form>
-            
-        </div>
-    </div>
-</body>
 
-</html>
+    <div>
+        <h2>Movies</h2>
+        <form action="{% url 'movies_home' %}">
+            <input type="submit" value="Movies" />
+        </form>
+    </div>
+    <br>
+    <div>
+        <h2>Series</h2>
+        <form action="{% url 'series_home' %}">
+            <input type="submit" value="Series" />
+        </form>
+    </div>
+</div>
+
+{% endblock %}
