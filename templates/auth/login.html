@@ -11,5 +11,7 @@
     <label for="floatingPassword">Password</label>
 </div>
 <br>
-<div><button type="button" class="btn btn-success">Login</button></div>
+<div><form action="{% url 'home_page' %}">
+    <input type="submit" value="Login" />
+</form></div>
 {% endblock %}
