@@ -17,6 +17,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+
+    {% block css_block %}
+    {% endblock %}
+    {% block js_block %}
+    {% endblock %}
 </head>
 
 <body>
@@ -41,9 +46,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'series_home' %}">Series</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% if user.is_authenticated %} {% url 'logout' %} {% else %} {% url 'login' %} {% endif %}">{% if user.is_authenticated %} Logout {% else %} Log In {% endif %}</a>
-                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
@@ -52,7 +54,8 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">Action</a></li>
                                 <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                {% if user.is_authenticated %} <li><a class="dropdown-item" href="{% if user.is_authenticated %} {% url 'logout' %} {% endif %}">Log Out</a></li>{% endif %}</a>
+                                
                             </ul>
                         </li>
                     </ul>
@@ -64,13 +67,11 @@
 
     <header>
         {% block header %}
-        <h1>Welcome to My Site</h1>
         {% endblock %}
     </header>
 
     <main>
         {% block content %}
-        <p>This is the content of the page.</p>
         {% endblock %}
     </main>
 
@@ -156,18 +157,3 @@
 </body>
 
 </html>
-
-
-
-
-<!--
-{% if user.is_authenticated %}
-<form action="{% url 'logout' %}" method="post">
-    {% csrf_token %}
-    <button type="submit">Log Out</button>
-</form>
-{% else %}
-<p>login</p>
-<a href="{% url 'login' %}">Log In</a>
-{% endif %}
--->

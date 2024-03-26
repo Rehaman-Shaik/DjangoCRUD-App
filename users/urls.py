@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from .views import SignUpView
+
 
 urlpatterns = [
     path('', views.landing_page, name = 'landing_page'),
@@ -9,6 +11,6 @@ urlpatterns = [
     path('user/<id>/',views.detail_view, name="user_details"),
     path('update_user/<int:id>/', views.update_user, name='update_user'),
     path('delete_user/<int:id>/', views.delete_user, name='delete_user'),
-    path('signup/', views.sign_up, name='signup'),
-    path('login/', views.login, name='login' ),
+    path("signup/", SignUpView.as_view(), name="signup"),
+    #path('login/', views.login, name='login' ),
 ]

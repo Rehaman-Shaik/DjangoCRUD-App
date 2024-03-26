@@ -28,8 +28,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-LOGIN_REDIRECT_URL = "/home/"
-LOGOUT_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "home_page"
+LOGOUT_REDIRECT_URL = "landing_page"
 
 
 # Application definition
