@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<p>{% if user.username == 'shaik' %}
+    Hello admin, You can access the dashboard
+    {% endif %}
+</p>
+<form action="{% url 'dashboard' %}">
+    <input type="submit" value="Dashboard" />
+</form>
+{% endblock %}
