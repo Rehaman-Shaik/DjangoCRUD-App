@@ -13,4 +13,7 @@ urlpatterns = [
     path('delete_user/<int:id>/', views.delete_user, name='delete_user'),
     path("signup/", SignUpView.as_view(), name="signup"),
     #path('login/', views.login, name='login' ),
+    path('dashboard/', views.admin_dashboard, name='dashboard'),
+    path('profile/', views.user_profile, name='profile'),
+    path('user_dashboard', views.user_dashboard, name='user_dashboard')
 ]

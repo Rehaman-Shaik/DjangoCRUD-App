@@ -78,3 +78,15 @@ class SignUpView(CreateView):
 
 #def login(request):
 #    return render(request, 'auth/login.html')
+
+
+def admin_dashboard(request):
+    return render(request, 'curd_op/dashboard.html')
+
+
+def user_profile(request):
+    return render(request, 'user/profile.html')
+
+
+def user_dashboard(request):
+    return render(request, 'user/user_dashboard.html')
