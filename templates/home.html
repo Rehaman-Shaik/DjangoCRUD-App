@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 {% block title %} Home {% endblock %}
-{% block header %}<h1 style="text-align: center;">Welcome to '__________'</h1>{% endblock %}
+{% block header %}
+<h1 style="text-align: center;">
+    {% if user.is_authenticated %}
+    Welcome {{ user.username }}!
+    {% else %}
+    Please log in
+    {% endif %}
+</h1>
+{% endblock %}
 {% block content %}
 <div>
     <h2 style="font-weight: bold;">CRUD Operations</h2>
