@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %} Home {% endblock %}
 {% block header %}
 <h1 style="text-align: center;">
@@ -12,6 +13,7 @@
 {% block content %}
     <div>
         <h2>Movies</h2>
+        <img style="height: 300px; width:200px;" src="{% static 'movies/marvel.jpg' %}" alt="My image">
         <form action="{% url 'movies_home' %}">
             <input type="submit" value="Movies" />
         </form>
