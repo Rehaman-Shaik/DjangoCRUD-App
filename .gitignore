@@ -21,5 +21,5 @@ myenv/
 static/common-react-dashboard/js_dev/
 aidoos/settings/local.py
 **/migrations/
-**/_pycache_/
+**/__pycache__/
 **/migrations/**
