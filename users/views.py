@@ -6,6 +6,7 @@ from django.urls import reverse
 #from django.http import HttpResponse
 from .models import Profile
 from .forms import ProfileForms
+from movies.models import Movies
 # Create your views here.
 
 def landing_page(request):
@@ -33,7 +34,8 @@ def list_all_users(request):
 
 
 def home_page(request):
-    return render(request, 'home.html')
+    movies = Movies.objects.all()
+    return render(request, 'home.html', {"movies":movies})
 
 
 def detail_view(request, id):

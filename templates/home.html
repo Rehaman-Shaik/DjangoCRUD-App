@@ -13,7 +13,10 @@
 {% block content %}
     <div>
         <h2>Movies</h2>
-        <img style="height: 300px; width:200px;" src="{% static 'movies/marvel.jpg' %}" alt="My image">
+        {% for movie in movies %}
+        <h1>{{movie.name}}</h1>
+        <img style="height: 300px; width:200px;" src="{{MEDIA_URL}}{{movie.image.url}}" alt="My image">
+        {% endfor %}
         <form action="{% url 'movies_home' %}">
             <input type="submit" value="Movies" />
         </form>
