@@ -23,7 +23,9 @@
     {% block js_block %}
     {% endblock %}
 </head>
-
+{% url 'home_page' as homepage%}
+{% url 'movies_home' as moviespage %}
+{% url 'series_home' as seriespage %}
 <body>
     <section>
         {% block navigation %}
@@ -38,13 +40,13 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{% url 'home_page' %}">Home</a>
+                            <a class="nav-link {% if request.path == homepage %} active{% endif %}" aria-current="page" href="{{homepage}}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'movies_home' %}">Movies</a>
+                            <a class="nav-link {% if request.path == moviespage %} active{% endif %} "href="{{moviespage}}">Movies</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'series_home' %}">Series</a>
+                            <a class="nav-link {% if request.path == seriespage %} active{% endif %}" href="{{seriespage}}">Series</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
